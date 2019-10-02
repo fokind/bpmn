@@ -1,0 +1,66 @@
+{
+  "name": "bpmn",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fokind/bpmn.git"
+  },
+  "homepage": "https://github.com/fokind/bpmn",
+  "bugs": {
+    "url": "https://github.com/fokind/bpmn/issues"
+  },
+  "main": "lib/server.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "start": "node demo/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "patch-package"
+  },
+  "keywords": [
+    "bpmn"
+  ],
+  "author": {
+    "name": "Dmitry Fokin"
+  },
+  "engines": {
+    "node": ">= 12.10.0",
+    "npm": ">= 6.11.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bpmn-engine": "^8.3.2",
+    "camunda-bpmn-moddle": "^4.1.2",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-round": "^1.0.1",
+    "mongodb": "^3.3.2",
+    "node-cron": "^2.0.3",
+    "odata-v4-mongodb": "^0.1.12",
+    "odata-v4-server": "^0.2.13",
+    "patch-package": "^6.1.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
+    "ws": "^7.1.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.1",
+    "@types/lodash": "^4.14.138",
+    "@types/moment-round": "^1.0.3",
+    "@types/mongodb": "^3.3.1",
+    "@types/node": "^12.7.4",
+    "@types/node-cron": "^2.0.2",
+    "@types/request-promise-native": "^1.0.16",
+    "@types/ws": "^6.0.3",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.2"
+  }
+}

@@ -5,6 +5,11 @@ import path from "path";
 // @ts-ignore
 import { Engine } from "bpmn-engine";
 
+function service1(scope: any, next: any) {
+  console.log(scope);
+  next();
+}
+
 export class TraderEngine extends EventEmitter {
   public static async execute(key: string): Promise<void> {
     const engine = Engine({
@@ -21,7 +26,13 @@ export class TraderEngine extends EventEmitter {
     const listener = new EventEmitter();
     listener.on("activity.enter", (elementApi, engineApi) => {
       console.log(
-        `${elementApi.type} <${elementApi.id}> of ${engineApi.name} is entered`
+        `${elementApi.type} <${elementApi.id}> of ${engineApi.name} is enter`
+      );
+    });
+
+    listener.on("activity.end", (elementApi, engineApi) => {
+      console.log(
+        `${elementApi.type} <${elementApi.id}> of ${engineApi.name} is end`
       );
     });
 
@@ -33,7 +44,10 @@ export class TraderEngine extends EventEmitter {
     // });
 
     engine.execute({
-      listener
+      listener,
+      services: {
+        service1
+      }
     });
   }
 

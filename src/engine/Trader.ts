@@ -5,8 +5,8 @@ import path from "path";
 // @ts-ignore
 import { Engine } from "bpmn-engine";
 
-function service1(scope: any, next: any) {
-  console.log(scope);
+function getCandles(scope: any, next: any) {
+  console.log("scope:", scope);
   next();
 }
 
@@ -16,6 +16,7 @@ export class TraderEngine extends EventEmitter {
       name: "trader",
       source: fs.readFileSync(
         path.join(__dirname, "../../bpmn/script1.bpmn"),
+        // path.join(__dirname, "../../bpmn/trader.bpmn"),
         "utf8"
       ),
       moddleOptions: {
@@ -46,7 +47,7 @@ export class TraderEngine extends EventEmitter {
     engine.execute({
       listener,
       services: {
-        service1
+        getCandles
       }
     });
   }
